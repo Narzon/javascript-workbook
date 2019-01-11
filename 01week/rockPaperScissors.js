@@ -9,8 +9,38 @@ const rl = readline.createInterface({
 
 
 function rockPaperScissors(hand1, hand2) {
+  //scrub whitespace and convert hand1 and hand2 to lowercase
+  hand1 = hand1.replace(/\s+/g, '').toLowerCase();
+  hand2 = hand2.replace(/\s+/g, '').toLowerCase();
+  //create User1 and User2 variables and assign with value 0 for rock, 1 for paper, 2 for scissors
+  let User1;
+  let User2;
+  if (hand1 === 'rock') {
+    User1 = 0;
+  } else if (hand1 === "paper") {
+    User1 = 1;
+  } else {
+    User1 = 2;
+  };
+  if (hand2 === 'rock') {
+    User2 = 0;
+  } else if (hand2 === "paper") {
+    User2 = 1;
+  } else {
+    User2 = 2;
+  };
 
-  // Write code here
+	//if both values equal, announce tie
+	if (User1 === User2) {
+		return("It's a tie!");
+	}
+	//use difference of User2 and User1 to determine whether a User2 win occurs
+	else if (User2 - User1 === 1 || User2 - User1 === -2) {
+		return("Hand two wins!");
+	//in all other cases, announce User1 win
+	} else {
+		return("Hand one wins!");
+	};
 
 }
 
