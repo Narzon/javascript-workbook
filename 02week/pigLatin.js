@@ -10,9 +10,39 @@ const rl = readline.createInterface({
 
 function pigLatin(word) {
 
-  // Your code here
-
+  //create a simple function to check whether a letter s is a vowel
+  function vowelTest(s) {
+    return (/[aeiou]/).test(s);
+  }
+  //strip whitespace and convert input to lowercase
+  word = word.replace(/\s+/g, '').toLowerCase();
+  
+  //create a new empty string to append the new word to
+  let newString = ""
+  //if the first letter of the word is a vowel, append the whole word and "yay", then return
+  if (vowelTest(word[0])) {
+  	newString = newString + word + "yay"
+  	return newString
+  //otherwise, create an empty string as the new suffix to append
+  } else {
+  	let i = 0
+  	let newSuffix = ""
+  //iterate through the word until reaching a vowel, and append every consonant to newSuffix
+  	while (!vowelTest(word[i])) {
+  		newSuffix = newSuffix + word[i]
+  		i++
+  	}
+  //iterate through the remaining string to add it to newString
+  	while (i !== word.length) {
+  		newString = newString + word[i]
+      i++
+  	}
+  //append the newSuffix, add "ay", the return
+  	newString = newString + newSuffix + "ay"
+  	return newString
+  }
 }
+
 
 
 function getPrompt() {
