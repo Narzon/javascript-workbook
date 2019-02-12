@@ -7,7 +7,6 @@ const rl = readline.createInterface({
 	output: process.stdout
 });
 
-
 function Checker(symbol, location) {
 	// define a constructor function Checker with parameters to determine each piece's symbol and location on the board
 	this.symbol = symbol
@@ -260,7 +259,6 @@ let checkForWin = function() {
 
 const game = new Game();
 game.start();
-
 
 // Tests
 if (typeof describe === 'function') {
