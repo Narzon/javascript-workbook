@@ -11,7 +11,7 @@ function Checker(symbol, location) {
 	// define a constructor function Checker with parameters to determine each piece's symbol and location on the board
 	this.symbol = symbol
 	this.location = location
-	//by default, a piece is not kinged
+	// by default, a piece is not kinged
 	this.isKing = false
 }
 
