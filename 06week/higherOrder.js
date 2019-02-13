@@ -2,24 +2,59 @@
 
 const assert = require('assert');
 
+//iterate over the array and callback over each element
 function forEach(arr, callback) {
-  // Your code here
+  let length = arr.length
+  for (let i = 0; i < length; i++) {
+    callback(arr[i])
+  }
 }
 
+//iterate over the array, callback over each element, then push each element to a new array
 function map(arr, callback) {
-  // Your code here
+  let newArray = []
+  let length = arr.length
+  for (let i = 0; i < length; i++) {
+    let newItem = callback(arr[i])
+    newArray.push(newItem)
+  }
+  return newArray
 }
 
+//iterate over the array, if callback returns true for an element, push it into a new array
 function filter(arr, callback) {
-  // Your code here
+  let newArray = []
+  let length = arr.length
+  for (let i = 0; i < length; i++) {
+    if (callback(arr[i])) {
+      newArray.push(arr[i])
+    }
+  }
+  return newArray
 }
 
+//iterate over the array, returning true if callback returns true, else return false
 function some(arr, callback) {
-  // Your code here
+  let newArray = []
+  let length = arr.length
+  for (let i = 0; i < length; i++) {
+    if (callback(arr[i])) {
+      return true
+    }
+  }
+  return false
 }
 
+//iterate over the array, returning false if callback returns false, else return true
 function every(arr, callback) {
-  // Your code here
+  let newArray = []
+  let length = arr.length
+  for (let i = 0; i < length; i++) {
+    if (!callback(arr[i])) {
+      return false
+    }
+  }
+  return true
 }
 
 if (typeof describe === 'function') {
